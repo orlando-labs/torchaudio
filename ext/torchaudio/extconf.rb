@@ -68,7 +68,7 @@ $LDFLAGS += ":#{cuda_lib}/stubs:#{cuda_lib}" if with_cuda
 # https://github.com/pytorch/pytorch/blob/v1.5.0/torch/utils/cpp_extension.py#L1232-L1238
 $LDFLAGS += " -lc10 -ltorch_cpu -ltorch"
 if with_cuda
-  $LDFLAGS += " -lcuda -lnvrtc -lnvToolsExt -lcudart -lc10_cuda -ltorch_cuda -lcufft -lcurand -lcublas -lcudnn"
+  $LDFLAGS += " -lcuda -lnvrtc -lnvtx3interop -lcudart -lc10_cuda -ltorch_cuda -lcufft -lcurand -lcublas -lcudnn"
   # TODO figure out why this is needed
   $LDFLAGS += " -Wl,--no-as-needed,#{lib}/libtorch.so"
 end
